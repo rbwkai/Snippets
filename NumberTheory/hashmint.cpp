@@ -1,9 +1,9 @@
 
 struct hashmint{
   ll a,b,c;
-  const ll modA = 1000000007;
-  const ll modB = 1000000009;
-  const ll modC = 998244353;
+  static const ll modA = 1000000007;
+  static const ll modB = 1000000009;
+  static const ll modC = 998244353;
   hashmint(ll _v=0) { a = (_v%modA + modA)%modA; b = (_v%modB + modB)%modB; c = (_v%modC + modC)%modC; }
 
   friend hashmint operator+(const hashmint& x, const hashmint& y){ return hashmint(x.a + y.a, x.b + y.b, x.c + y.c); }
