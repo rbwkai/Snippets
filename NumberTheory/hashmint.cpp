@@ -1,10 +1,18 @@
-
 struct hashmint{
   ll a,b,c;
   static const ll modA = 1000000007;
   static const ll modB = 1000000009;
-  static const ll modC = 998244353;
-  hashmint(ll _v=0) { a = (_v%modA + modA)%modA; b = (_v%modB + modB)%modB; c = (_v%modC + modC)%modC; }
+  static const ll modC = 1000000021;
+  hashmint(ll _v=0){
+    a = (_v%modA + modA)%modA;
+    b = (_v%modB + modB)%modB;
+    c = (_v%modC + modC)%modC;
+  }
+  hashmint(ll _a, ll _b, ll _c){
+    a = (_a%modA + modA)%modA;
+    b = (_b%modB + modB)%modB;
+    c = (_c%modC + modC)%modC;
+  }
 
   friend hashmint operator+(const hashmint& x, const hashmint& y){ return hashmint(x.a + y.a, x.b + y.b, x.c + y.c); }
   friend hashmint operator-(const hashmint& x, const hashmint& y){ return hashmint(x.a - y.a, x.b - y.b, x.c - y.c); }
@@ -17,12 +25,12 @@ struct hashmint{
     for( ; p; p>>=1, a=a*a) if(p&1) r=r*a;
     return r;
   }
-  static ll modpow(ll base, ll exp, ll mod){
+  static ll modpow(ll b, ll e, ll m){
     ll res=1;
-    while(exp){
-      if(exp&1) res = (res*base)%mod;
-      base = (base*base)%mod;
-      exp >>= 1;
+    while(e){
+      if(e&1) res = (res*b)%m;
+      b = (b*b)%m;
+      e >>= 1;
     }
   return res;
   }
