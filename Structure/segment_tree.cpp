@@ -14,11 +14,11 @@ template <class T, class L> struct segment_tree{
   }
 
   void lazyapply(T &to, int l, int r, const L &fr){
-    if(fr!=-1) to=fr;
+    if(fr!=lazyidn) to=fr;
   }
 
   void lazymerge(L &to, const L &fr){
-    if(fr!=-1) to=fr;
+    if(fr!=lazyidn) to=fr;
   }
 
   bool discriminant(const T &tl, const T &x){
