@@ -1,4 +1,4 @@
-struct Trie{
+struct Trie{ //edit logic for strings, its ll now
   ll A, S;
   struct Node{
     vector<Node*> nxt;
@@ -6,7 +6,7 @@ struct Trie{
   };
   Node* root;
  
-  Trie(): A(2), S(64){
+  Trie(ll a, ll l): A(a), S(l){
     root = new Node();
   }
  
@@ -23,8 +23,8 @@ struct Trie{
     ll mtch = 0;
     fir(S){
       ll bt = (x>>ii)&1;
-      if(cur->nxt[!bt]) mtch|=((!bt)<<ii), cur=cur->nxt[!bt];
-      else mtch|=(bt<<ii), cur=cur->nxt[bt];
+      if(cur->nxt[bt]) mtch|=((bt)<<ii), cur=cur->nxt[bt];
+      else mtch|=((!bt)<<ii), cur=cur->nxt[!bt];
     }
     return mtch;
   }
